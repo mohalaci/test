@@ -265,7 +265,7 @@ Method - GET
 Return plugin app
 */
 app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'/plugin/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
