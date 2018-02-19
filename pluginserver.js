@@ -97,7 +97,7 @@ function clearPluginCollection(callback){
 
 app.use(express.static('public'));
 
-app.post('/push', function(req, res){
+app.post('/push', urlencodedParser, function(req, res){
   shell.exec('git pull');
   shell.exec('pm2 restart pluginserver');
   res.status(200)
