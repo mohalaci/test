@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var async = require('async');
 var path    = require("path");
+var shell = require('shelljs');
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
@@ -95,6 +96,12 @@ function clearPluginCollection(callback){
 }
 
 app.use(express.static('public'));
+
+app.post('/push', function(req, res){
+  shell.exec('git pull');
+  shell.exec('pm2 restart pluginserver');
+  res.status(200)
+})
 
 /*
 Method - GET
