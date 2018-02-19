@@ -264,13 +264,13 @@ app.post('/clearplugins', function(req, res){
 Method - GET
 Return plugin app
 */
-app.get('/plugin',function(req,res){
+app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
 
-var server = app.listen(8083, function () {
+var server = app.listen(8084, function () {
    var host = server.address().address
    var port = server.address().port
 
